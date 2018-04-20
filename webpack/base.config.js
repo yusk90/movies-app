@@ -9,9 +9,6 @@ module.exports = {
       test: /\.js$/,
       loader: 'babel-loader',
       exclude: [/node_modules/, /dist/],
-      options: {
-        presets: ['env', 'react'],
-      },
     }],
   },
   plugins: [
