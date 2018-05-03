@@ -1,3 +1,5 @@
+const path = require('path');
+
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -19,4 +21,9 @@ module.exports = {
       template: 'app/index.html',
     }),
   ],
+  resolve: {
+    alias: {
+      components: path.resolve(__dirname, '..', 'app', 'components'),
+    },
+  },
 };
