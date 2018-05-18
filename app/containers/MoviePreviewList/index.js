@@ -1,11 +1,9 @@
 import React from 'react';
 
-import { MoviePreviewList } from 'containers';
-import { Header, Footer, MovieDetails } from 'components';
-
+import { MoviePreview } from 'components';
 import './index.less';
 
-const movie = {
+const movieData = {
   title: 'The Godfather',
   rating: 9.2,
   posterSrc: 'https://ia.media-imdb.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,704,1000_AL_.jpg',
@@ -15,20 +13,16 @@ const movie = {
   description: 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.',
 };
 
-const App = () => (
-  <div className="app">
-    <div className="app__header">
-      <Header>
-        <MovieDetails {...movie} />
-      </Header>
-    </div>
-    <div className="container">
-      <MoviePreviewList />
-    </div>
-    <div className="app__footer">
-      <Footer />
-    </div>
+const MoviePreviewList = () => (
+  <div className="movie-preview-list">
+    {
+      [movieData, movieData, movieData, movieData].map((movie, index) => (
+        <div key={index} className="movie-preview-list__item">
+          <MoviePreview {...movie} />
+        </div>
+      ))
+    }
   </div>
 );
 
-export default App;
+export default MoviePreviewList;

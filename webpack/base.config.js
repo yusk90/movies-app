@@ -33,6 +33,7 @@ module.exports = {
   resolve: {
     alias: {
       components: path.resolve(__dirname, '..', 'app', 'components'),
+      containers: path.resolve(__dirname, '..', 'app', 'containers'),
     },
   },
 };
