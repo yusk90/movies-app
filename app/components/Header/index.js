@@ -13,7 +13,7 @@ const Header = ({ children }) => (
 );
 
 Header.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.array]),
 };
 
 export default Header;
