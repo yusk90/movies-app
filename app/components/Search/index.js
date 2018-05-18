@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Button } from 'components';
+
 import './index.less';
 
 const Search = () => (
@@ -10,10 +12,16 @@ const Search = () => (
     </div>
     <div className="search__filter">
       Search by
-      <button>Title</button>
-      <button>Genre</button>
+      <Button className="search__filter-button" size="small">
+        Title
+      </Button>
+      <Button className="search__filter-button" size="small">
+        Genre
+      </Button>
     </div>
-    <button className="search__submit-button">Search</button>
+    <Button className="search__submit-button">
+      Search
+    </Button>
   </div>
 );
 
