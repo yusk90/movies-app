@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { MoviePreviewList } from 'containers';
-import { Header, Footer, MovieDetails } from 'components';
+import { Header, Footer, MovieDetails, Search } from 'components';
 
 import './index.less';
 
@@ -20,6 +20,8 @@ const App = () => (
     <div className="app__header">
       <Header>
         <MovieDetails {...movie} />
+        Find your film
+        <Search />
       </Header>
     </div>
     <div className="container">
