@@ -1,0 +1,20 @@
+.header {
+  position: relative;
+
+  &::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    background-image: url("http://www.studiopretzel.com/wp-content/uploads/2017/08/image.png");
+    background-color: #000;
+    background-position: center;
+    filter: brightness(0.4);
+  }
+
+  padding: 50px 0;
+  color: #fff;
+}

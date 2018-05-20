@@ -97,5 +97,12 @@
     "react/no-array-index-key": 0,
     "require-yield": 0,
     "prefer-destructuring": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "./webpack/base.config.js"
+      }
+    }
   }
 }

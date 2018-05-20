@@ -1,3 +1,5 @@
+const path = require('path');
+
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -9,6 +11,15 @@ module.exports = {
       test: /\.js$/,
       loader: 'babel-loader',
       exclude: [/node_modules/, /dist/],
+    }, {
+      test: /\.less$/,
+      use: [{
+        loader: 'style-loader',
+      }, {
+        loader: 'css-loader',
+      }, {
+        loader: 'less-loader',
+      }],
     }],
   },
   plugins: [
@@ -19,4 +30,10 @@ module.exports = {
       template: 'app/index.html',
     }),
   ],
+  resolve: {
+    alias: {
+      components: path.resolve(__dirname, '..', 'app', 'components'),
+      containers: path.resolve(__dirname, '..', 'app', 'containers'),
+    },
+  },
 };
