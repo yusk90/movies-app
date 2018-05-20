@@ -6,7 +6,7 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server --open --config webpack/dev.config.js",
     "build:dev": "cross-env NODE_ENV=development webpack --config webpack/dev.config.js",
     "build:prod": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js",
-    "test": "jest --no-cache",
+    "test": "jest --no-cache --coverage",
     "test:watch": "jest --no-cache --watch"
   },
   "author": "Yurii Skorniakov",
@@ -15,7 +15,16 @@
     "setupTestFrameworkScriptFile": "<rootDir>/testing-setup/index.js",
     "moduleNameMapper": {
       ".*\\.(css|less|styl|scss|sass)$": "<rootDir>/testing-setup/mocks/styleMock.js"
-    }
+    },
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/coverage/",
+      "/testing-setup/",
+      "/webpack/"
+    ]
   },
   "dependencies": {
     "react": "^16.3.2",
