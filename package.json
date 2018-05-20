@@ -11,7 +11,10 @@
   "author": "Yurii Skorniakov",
   "license": "MIT",
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/test-setup.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/testing-setup/index.js",
+    "moduleNameMapper": {
+      ".*\\.(css|less|styl|scss|sass)$": "<rootDir>/testing-setup/mocks/styleMock.js"
+    }
   },
   "dependencies": {
     "react": "^16.3.2",
@@ -23,6 +26,7 @@
   "devDependencies": {
     "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "classnames": "^2.2.5",
