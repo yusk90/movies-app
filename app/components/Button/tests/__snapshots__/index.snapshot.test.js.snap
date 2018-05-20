@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> renders button with text 1`] = `
+<button
+  className="button"
+>
+  Button text
+</button>
+`;
+
+exports[`<Button /> renders small button 1`] = `
+<button
+  className="button button--size-small"
+>
+  Button text
+</button>
+`;
