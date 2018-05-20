@@ -14,7 +14,9 @@
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/testing-setup/index.js",
     "moduleNameMapper": {
-      ".*\\.(css|less|styl|scss|sass)$": "<rootDir>/testing-setup/mocks/styleMock.js"
+      ".*\\.(css|less|styl|scss|sass)$": "<rootDir>/testing-setup/mocks/styleMock.js",
+      "components": "<rootDir>/app/components",
+      "containers": "<rootDir>/app/containers"
     },
     "collectCoverageFrom": [
       "**/*.{js,jsx}"
