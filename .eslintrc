@@ -19,6 +19,9 @@
       "jsx": true
     }
   },
+  "globals": {
+    "cy": true
+  },
   "rules": {
     "arrow-parens": [
       "error",

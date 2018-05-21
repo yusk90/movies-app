@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MovieDetails /> renders movie details 1`] = `
+<div
+  className="movie-details"
+>
+  <div
+    className="movie-details__poster"
+  >
+    <img
+      alt="The Godfather"
+      className="movie-details__poster-image"
+      src="https://ia.media-imdb.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,704,1000_AL_.jpg"
+    />
+  </div>
+  <div
+    className="movie-details__description-wrapper"
+  >
+    <h1
+      className="movie-details__title"
+    >
+      The Godfather
+       
+      <span
+        className="movie-details__rating"
+      >
+        9.2
+      </span>
+    </h1>
+    <div
+      className="movie-details__genre"
+    >
+      Crime, Drama
+    </div>
+    <div
+      className="movie-details__statistics"
+    >
+      <span
+        className="movie-details__year"
+      >
+        1972
+      </span>
+      <span
+        className="movie-details__length"
+      >
+        2h 55min
+      </span>
+    </div>
+    <div
+      className="movie-details__description"
+    >
+      The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.
+    </div>
+  </div>
+</div>
+`;
