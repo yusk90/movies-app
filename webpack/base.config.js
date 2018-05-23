@@ -1,5 +1,3 @@
-const path = require('path');
-
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -31,9 +29,6 @@ module.exports = {
     }),
   ],
   resolve: {
-    alias: {
-      components: path.resolve(__dirname, '..', 'app', 'components'),
-      containers: path.resolve(__dirname, '..', 'app', 'containers'),
-    },
+    modules: ['app', 'node_modules'],
   },
 };
