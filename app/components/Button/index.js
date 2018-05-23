@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import './index.less';
 
 const Button = ({
-  children, className, size, onClick,
+  children, className, size, active, onClick,
 }) => (
   <button
     className={classNames(
@@ -13,6 +13,7 @@ const Button = ({
       className,
       {
         [`button--size-${size}`]: size,
+        'button--state-active': active,
       }
     )}
     onClick={onClick}
@@ -25,6 +26,7 @@ Button.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   className: PropTypes.string,
   size: PropTypes.oneOf(['small']),
+  active: PropTypes.bool,
   onClick: PropTypes.func,
 };
 
