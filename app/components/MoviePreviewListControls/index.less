@@ -1,0 +1,47 @@
+.movie-preview-list-controls {
+  display: flex;
+  min-height: 40px;
+  background: #eee;
+  align-items: center;
+
+  &__container {
+    display: flex;
+  }
+
+  &__sorting {
+    margin-left: auto;
+  }
+
+  &__sort-button {
+    padding: 0;
+    margin-left: 10px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+
+    &::after {
+      content: '>';
+      display: inline-block;
+      margin-left: 3px;
+      opacity: 0;
+      transform: rotate(90deg);
+      vertical-align: middle;
+    }
+
+    &--active {
+      color: #b95866;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    &--desc {
+      &::after {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}

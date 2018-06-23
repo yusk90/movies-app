@@ -4,16 +4,17 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { MoviePreviewList } from 'containers';
-import { Header, Footer, MovieDetails, Search } from 'components';
-import { loadMovies as loadMoviesAction } from 'actions';
+import { Header, Footer, Search, MoviePreviewListControls } from 'components';
+import { loadMovies as loadMoviesAction, sortBy as sortByAction } from 'actions';
 
 import './index.less';
 
-const App = ({ loadMovies, movies }) => (
+const App = ({
+  loadMovies, sortBy, movies, sortProperty, sortOrder,
+}) => (
   <div className="app">
     <div className="app__header">
       <Header>
-        { movies[0] && <MovieDetails {...movies[0]} /> }
         Find your film
         <Search
           searchByConfig={[
@@ -24,6 +25,12 @@ const App = ({ loadMovies, movies }) => (
         />
       </Header>
     </div>
+    <MoviePreviewListControls
+      sortBy={sortBy}
+      sortProperty={sortProperty}
+      sortOrder={sortOrder}
+      moviesCount={movies.length}
+    />
     <div className="container">
       { movies.length ? <MoviePreviewList movies={movies} /> : 'No movies' }
     </div>
@@ -36,21 +43,20 @@ const App = ({ loadMovies, movies }) => (
 App.propTypes = {
   loadMovies: PropTypes.func,
   movies: PropTypes.array,
+  sortBy: PropTypes.func,
+  sortProperty: PropTypes.string,
+  sortOrder: PropTypes.string,
 };
 
-function prepareMoviePreview(movie) {
-  return {
-    title: movie.title,
-    posterSrc: movie.poster_path,
-    genre: movie.genres.join(', '),
-    year: Number(movie.release_date.substr(0, 4)),
-  };
-}
-
 const mapStateToProps = state => ({
-  movies: state.movies.data ? state.movies.data.map(prepareMoviePreview) : [],
+  movies: state.movies.movies || [],
+  sortProperty: state.movies.sortProperty,
+  sortOrder: state.movies.sortOrder,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ loadMovies: loadMoviesAction }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  loadMovies: loadMoviesAction,
+  sortBy: sortByAction,
+}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
