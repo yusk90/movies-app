@@ -17,8 +17,9 @@ class Search extends Component {
     this.setState({ searchBy: filterName });
   }
 
-  handleSubmit = () => {
+  handleSubmit = event => {
     const { onSubmit } = this.props;
+    event.preventDefault();
 
     onSubmit(this.props.searchByConfig ? this.state : this.state.search);
   }
@@ -52,13 +53,15 @@ class Search extends Component {
     return (
       <div className="search">
         <div className="search__input-wrapper">
-          <input
-            value={this.state.query}
-            onChange={this.handleQueryChange}
-            className="search__input"
-            type="text"
-          />
-          <span className="search__return-icon">↵</span>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              value={this.state.query}
+              onChange={this.handleQueryChange}
+              className="search__input"
+              type="text"
+            />
+            <span className="search__return-icon">↵</span>
+          </form>
         </div>
         { searchByConfig && this.renderFilter()}
         <Button
