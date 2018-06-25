@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 import {
   Header,
@@ -15,9 +14,9 @@ import { loadMovie as loadMovieAction, clearState as clearStateAction } from 'ac
 
 class MovieDetailsPage extends Component {
   componentDidMount() {
-    const { id } = this.props.match.params;
+    const { match: { params }, loadMovie } = this.props;
 
-    this.props.loadMovie(id);
+    loadMovie(params.id);
 
     // search: movie.genres[0]
     // searchBy: 'genres'
@@ -71,4 +70,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   clearState: clearStateAction,
 }, dispatch);
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MovieDetailsPage));
+export default connect(mapStateToProps, mapDispatchToProps)(MovieDetailsPage);

@@ -8,6 +8,7 @@ import './index.less';
 const App = () => (
   <Switch>
     <Route exact path="/" component={SearchPage} />
+    <Route path="/search" component={SearchPage} />
     <Route path="/film/:id" component={MovieDetailsPage} />
   </Switch>
 );

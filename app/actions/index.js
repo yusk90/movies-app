@@ -32,11 +32,7 @@ const fetchMovies = query => ({
 });
 
 // Relies on Redux Thunk middleware.
-export const loadMovies = queryObj => dispatch => {
-  const query = Object.keys(queryObj)
-    .map(prop => `${prop}=${queryObj[prop]}`)
-    .join('&');
-
+export const loadMovies = query => dispatch => {
   dispatch(fetchMovies(query));
 };
 
