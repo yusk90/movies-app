@@ -1,2 +1,3 @@
 export { default as App } from './App';
-export { default as MoviePreviewList } from './MoviePreviewList';
+export { default as MovieDetailsPage } from './MovieDetailsPage';
+export { default as SearchPage } from './SearchPage';

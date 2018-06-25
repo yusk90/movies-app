@@ -1,7 +1,12 @@
 import { combineReducers } from 'redux';
 import { sortBy } from 'lodash';
 
-import { MOVIES_SUCCESS, SORT_MOVIES } from 'actions';
+import {
+  MOVIES_SUCCESS,
+  MOVIE_SUCCESS,
+  SORT_MOVIES,
+  CLEAR_STATE,
+} from 'actions';
 
 const initialState = { sortProperty: 'releaseDate', sortOrder: 'ASC' };
 const movies = (state = initialState, action) => {
@@ -10,6 +15,11 @@ const movies = (state = initialState, action) => {
       const sortedMovies = sortBy(action.response.data.map(prepareMovie), state.sortProperty);
 
       return { ...state, movies: state.sortOrder === 'ASC' ? sortedMovies : sortedMovies.reverse() };
+    }
+    case MOVIE_SUCCESS: {
+      const movie = prepareMovie(action.response);
+
+      return { ...state, movie };
     }
     case SORT_MOVIES: {
       const sortedMovies = sortBy(state.movies, action.payload.sortProperty);
@@ -28,6 +38,10 @@ const movies = (state = initialState, action) => {
         sortOrder,
       };
     }
+    case CLEAR_STATE:
+      return {
+        ...initialState,
+      };
     default:
       return state;
   }
@@ -35,12 +49,14 @@ const movies = (state = initialState, action) => {
 
 function prepareMovie(movie) {
   return {
+    id: movie.id,
     title: movie.title,
     posterSrc: movie.poster_path,
-    genre: movie.genres.join(', '),
+    genres: movie.genres,
     year: Number(movie.release_date.substr(0, 4)),
     releaseDate: movie.release_date,
     rating: movie.vote_average,
+    description: movie.overview,
   };
 }
 

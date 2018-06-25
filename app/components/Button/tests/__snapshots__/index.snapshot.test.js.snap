@@ -3,6 +3,7 @@
 exports[`<Button /> renders button with text 1`] = `
 <button
   className="button"
+  onClick={[Function]}
 >
   Button text
 </button>
@@ -11,6 +12,7 @@ exports[`<Button /> renders button with text 1`] = `
 exports[`<Button /> renders small button 1`] = `
 <button
   className="button button--size-small"
+  onClick={[Function]}
 >
   Button text
 </button>
