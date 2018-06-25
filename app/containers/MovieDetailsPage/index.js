@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import {
   Header,
+  Logo,
   Footer,
   MovieDetails,
   MoviePreviewList,
@@ -36,7 +37,15 @@ class MovieDetailsPage extends Component {
       <div className="app">
         <div className="app__header">
           <Header>
-            <Button onClick={this.onSearchHandler}>Search</Button>
+            <div className="header__top">
+              <Logo />
+              <Button
+                className="header__top-button"
+                onClick={this.onSearchHandler}
+              >
+                Search
+              </Button>
+            </div>
             <MovieDetails {...movie} />
           </Header>
         </div>

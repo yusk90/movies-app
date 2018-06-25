@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import {
   Header,
+  Logo,
   Footer,
   Search,
   MoviePreviewList,
@@ -44,6 +45,9 @@ class SearchPage extends Component {
       <div className="app">
         <div className="app__header">
           <Header>
+            <div className="header__top">
+              <Logo />
+            </div>
             Find your film
             <Search
               searchByConfig={[
