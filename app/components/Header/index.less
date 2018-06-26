@@ -1,5 +1,7 @@
 .header {
   position: relative;
+  padding: 50px 0;
+  color: #fff;
 
   &::before {
     content: "";
@@ -15,6 +17,14 @@
     filter: brightness(0.4);
   }
 
-  padding: 50px 0;
-  color: #fff;
+  &__top {
+    display: flex;
+    min-height: 45px;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+
+  &__top-button {
+    margin-left: auto;
+  }
 }

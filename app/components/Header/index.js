@@ -6,7 +6,6 @@ import './index.less';
 const Header = ({ children }) => (
   <div className="header">
     <div className="container">
-      movieroulette<br />
       {children}
     </div>
   </div>

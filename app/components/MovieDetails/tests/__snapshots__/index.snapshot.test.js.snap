@@ -28,7 +28,7 @@ exports[`<MovieDetails /> renders movie details 1`] = `
       </span>
     </h1>
     <div
-      className="movie-details__genre"
+      className="movie-details__genres"
     >
       Crime, Drama
     </div>

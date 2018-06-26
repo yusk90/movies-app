@@ -1,14 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import { Header, Footer } from 'components';
-import { MoviePreviewList } from 'containers';
+import { Header, Footer, MoviePreviewList } from 'components';
 
-import App from '../index';
+import SearchPage from '../index';
 
-describe('<App />', () => {
+describe('<SearchPage />', () => {
   it('should render components', () => {
-    const renderedComponent = mount(<App />);
+    const renderedComponent = mount(<SearchPage />);
 
     expect(renderedComponent.find(Header).length).toBe(1);
     expect(renderedComponent.find(MoviePreviewList).length).toBe(1);
