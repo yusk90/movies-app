@@ -18,9 +18,6 @@ class MovieDetailsPage extends Component {
     const { match: { params }, loadMovie } = this.props;
 
     loadMovie(params.id);
-
-    // search: movie.genres[0]
-    // searchBy: 'genres'
   }
 
   onSearchHandler = () => {
@@ -28,6 +25,17 @@ class MovieDetailsPage extends Component {
 
     clearState();
     history.push('/');
+  }
+
+  // eslint-disable-next-line
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    const { match: { params }, loadMovie } = nextProps;
+    const { match: { params: { id } } } = this.props;
+
+    if (params.id !== id) {
+      window.scrollTo(0, 0);
+      loadMovie(params.id);
+    }
   }
 
   render() {
