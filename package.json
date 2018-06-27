@@ -9,7 +9,8 @@
     "test": "jest --no-cache --coverage",
     "test:watch": "jest --no-cache --watch",
     "cypress:open": "cypress open",
-    "e2e": "start-server-and-test start http://localhost:8081 cypress:open"
+    "e2e": "start-server-and-test start http://localhost:8081 cypress:open",
+    "ssr": "cross-env NODE_ENV=production webpack --config webpack/server.config.js && node ./server"
   },
   "author": "Yurii Skorniakov",
   "license": "MIT",
@@ -32,6 +33,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.10",
+    "null-loader": "^0.1.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
@@ -39,7 +41,8 @@
     "redux": "^3.7.2",
     "redux-storage": "^4.1.2",
     "redux-storage-engine-localstorage": "^1.1.4",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
