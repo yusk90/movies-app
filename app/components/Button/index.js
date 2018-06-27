@@ -1,31 +1,44 @@
+import styled from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import './index.less';
+const StyledButton = styled.button`
+  padding: ${props => props.small ? '5px 15px' : '15px 25px'};
+  background-color: #b95866;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  &.button--state-active {
+    background-color: #000
+  }
+`;
 
 const Button = ({
-  children, className, size, active, onClick,
+  children, className, active, onClick, small,
 }) => (
-  <button
+  <StyledButton
+    small={small}
     className={classNames(
       'button',
       className,
       {
-        [`button--size-${size}`]: size,
         'button--state-active': active,
       }
     )}
     onClick={onClick}
   >
     {children}
-  </button>
+  </StyledButton>
 );
 
 Button.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   className: PropTypes.string,
-  size: PropTypes.oneOf(['small']),
+  small: PropTypes.bool,
   active: PropTypes.bool,
   onClick: PropTypes.func,
 };

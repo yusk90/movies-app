@@ -33,9 +33,9 @@ class Search extends Component {
         {
           searchByConfig.map((el, index) => (
             <Button
+              small
               key={index}
               className="search__filter-button"
-              size="small"
               active={this.state.searchBy === el.prop}
               onClick={() => this.handleFilterChange(el.prop)}
             >
