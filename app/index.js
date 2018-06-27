@@ -8,7 +8,10 @@ import { App } from 'containers';
 import configureStore from './store/configureStore';
 import './index.less';
 
-const store = configureStore();
+/* eslint-disable */
+const store = configureStore(window.__PRELOADED_STATE__);
+delete window.__PRELOADED_STATE__;
+/* eslint-disable */
 
 ReactDOM.render(
   <BrowserRouter>
